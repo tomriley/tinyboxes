@@ -55,9 +55,10 @@ Tinyboxes::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  match 'welcome' => 'homepage#index'
-  match 'login' => 'homepage#login'
-  match 'logout' => 'homepage#logout'
-  match 'donate' => 'donations#donate'
-  root :to => 'leaderboard#board'
+  match 'donate/:token' => 'donations#donate', :as => 'donate'
+  match 'login' => 'sessions#login'
+  match 'logout' => 'sessions#logout'
+  match 'oauth_return' => 'sessions#oauth_return'
+  match 'leaderboard' => 'leaderboard#board'
+  root :to => 'homepage#index'
 end

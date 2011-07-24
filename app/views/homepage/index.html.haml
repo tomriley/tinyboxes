@@ -6,16 +6,20 @@
     UNICEF relies on contributions from governments and private donors and UNICEF's total income for 2006 was $2,781,000,000. Governments contribute two thirds of the organization's resources; private groups and some 6 million individuals contribute the rest through the National Committees
   #left_content
     #left_bar
-      #fb_connect
-        #fb_login.facebook-button.large
-          %span.button-text Connect with Facebook
+      - if false
+        #fb_connect
+          #fb_login.facebook-button.large
+            = link_to login_path do
+              %span.button-text Connect with Facebook
       .left_button Donate
       .left_button Recruit
-      .left_button.share_link Share
+      .left_button.share_link{:title => logged_in? ? donate_url(:token => current_user.token) : root_url} Share
+      - if logged_in?
+        %p
+          Donate URL:
+          = link_to donate_url(:token => current_user.token), donate_url(:token => current_user.token)
     #right_bar
       #rss_box RSS BOX
-#right_col
-  #dashboard Dashboard Content
 
 
 - content_for :bottom do

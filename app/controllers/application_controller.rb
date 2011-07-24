@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :load_fb, :except => 'welcome'
+  #before_filter :load_fb, :except => 'welcome'
   
   def load_fb
       @fb_oauth = Koala::Facebook::OAuth.new
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
   
   def current_user
-    User.first
+    User.find_by_id(session[:user_id])
   end
   
   def logged_in?
