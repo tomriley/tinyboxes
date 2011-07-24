@@ -1,4 +1,5 @@
-.leader
-  .position= position
-  .name= user.name
-  .money= user.money
+%tr.leader
+  %td.position= position
+  %td.picture= image_tag "https://graph.facebook.com/#{user.fbid}/picture"
+  %td.name= user.name
+  %td.money= number_to_currency user.money
