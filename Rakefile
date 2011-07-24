@@ -6,8 +6,3 @@ require 'rake'
 
 Tinyboxes::Application.load_tasks
 
-module ::YourApplicationName  
-  class Application
-    include Rake::DSL
-  end
-end
