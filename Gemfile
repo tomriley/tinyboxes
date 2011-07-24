@@ -16,7 +16,7 @@ gem 'rails', '3.0.9'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-gem "mini_fb"
+gem "koala"
 gem "json_pure"
 gem "haml"
 gem "json_pure"

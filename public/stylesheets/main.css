@@ -1,0 +1,19 @@
+#fb_login {
+	height: 46px;
+	display: block;
+	background: transparent url(/images/facebook-lg-f.png) no-repeat top left;
+	padding-left: 48px;
+	cursor: pointer;
+	width: 210px;
+}	
+#fb_login .button-text {
+		display: block;
+		padding: 15px 7px 17px 5px;
+		background: transparent url(/images/facebook-lg-r.png) no-repeat top right;
+		color: #fff;
+		font-family:'helvetica', 'arial', sans-serif
+}
+	
+#fb_login .active {
+		margin-top: 1px; // Class needs to be applied via JS since this is a div	
+}

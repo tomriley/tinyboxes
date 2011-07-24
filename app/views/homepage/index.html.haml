@@ -1,1 +1,39 @@
-= link_to 'Facebook OAuth', @oauth_url
+#fb_connect
+  %h2 Sign in with Facebook
+  #fb_login.facebook-button.large
+    %span.button-text Connect with Facebook
+- content_for :bottom do
+  :javascript
+    $(document).ready(
+    	function() {
+    		$("#fb_login").click(function(){
+    			$(this).find("img").show();
+    			$(this).find("span.button-text").html("Logging you in...");
+    			
+    			FB.login(function(response) {FB.getLoginStatus(function(response) {
+    				$(this).find("img").hide();
+    			  if (response.session) {
+    			    if (response.perms) {
+    			      // user is logged in and granted some permissions.
+    			      // perms is a comma separated list of granted permissions
+    			      location.href="/login"
+    			    } else {
+    			      // user is logged in, but did not grant any permissions
+    			      $('#flash_content').html('BlueFusion needs some more permissions to proceed!');
+          			  $('#flash_content').show();
+          			  $(this).find("span.button-text").html("Connect with Facebook");
+    			    }
+    			  } else {
+    			    // user is not logged in
+    			    $('#flash_content').html('Facebook login failed, please try again!');
+          			  $('#flash_content').show();
+          			  $(this).find("span.button-text span").html("Connect with Facebook");
+    			  }
+    			}, {perms:'user_birthday, user_education_history, user_hometown, user_location, friends_birthday, friends_education_history, friends_hometown, friends_location, friends_work_history, offline_access'});
+    		});
+    	});
+    	}
+    );
+    $('#fb_ready_flag').ready(function(){	
+    	FB.logout();
+    })
