@@ -1,3 +1,28 @@
+*:focus, *:active, a  { outline: none; }
+img {border:none}
+body, div, ul, h1,h2,h3,h4,h5,h6 { margin:0px; padding:0px;}
+span.spacer {padding-left:1em;}
+.small_text {font-size:60%;}
+.clear {
+  font-size: 0;
+  line-height: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+a{
+	color: #3b5998;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+/*--------------------------------------------------*/
+body{
+	font-family:'helvetica', 'arial', sans-serif;
+	font-size:13px;
+}
 #fb_login {
 	height: 46px;
 	display: block;
@@ -16,4 +41,97 @@
 	
 #fb_login .active {
 		margin-top: 1px; // Class needs to be applied via JS since this is a div	
+}
+
+
+#wrapper{
+	width:100%;
+}
+#left_col{
+	width:800px;
+	min-height:600px;
+	padding:16px;
+	float:left;
+	border-right:1px solid #eee;
+}
+#right_col{
+	padding:16px;
+	width:330px;
+	min-height:600px;
+	float:right;
+}
+
+#header_bar{
+	height:12px;
+	width:100%;
+	background-color:#01abe9;
+}
+#youtube_bar{
+	height:238px;
+	background-color:#eee;
+	text-align:center;
+	padding-top:12px;
+}
+#title_bar img{
+	width:240px;
+	margin-left:8px;
+}
+#about_bar{
+	margin-left:8px;
+	font-size:16px;
+	line-height:22px;
+	color:#555;
+	width:600px;
+}
+#left_content{
+	margin-top:12px;
+	border-top:1px solid #eee;
+	padding-top:18px;
+	padding-left:18px;
+}
+#left_bar{
+	width:400px;
+	float:left;
+}
+#right_bar{
+	width:360px;
+	float:left;
+}
+#rss_box{
+	height:340px;
+	background-color:#eee;
+	padding:20px;
+	text-align:center;	
+}
+
+.left_button{
+	-webkit-box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 2px 0px;
+	-webkit-transition-delay: 0s;
+	-webkit-transition-duration: 0.20000000298023224s;
+	-webkit-transition-property: all;
+	-webkit-transition-timing-function: linear;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#01abe9), to(#0099D1));
+	box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 2px 0px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	color: #FEF4E9;
+	cursor: pointer;
+	display: inline-block;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	height: 36px;
+	margin-top:12px;
+	padding-bottom: 8px;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 6px;
+	text-shadow: rgba(0, 0, 0, 0.296875) 0px 1px 1px;
+	width: 210px;
+}
+#dashboard{
+	height:440px;
+	background-color:#eee;
+	padding:20px;
+	text-align:center;
 }

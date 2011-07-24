@@ -56,7 +56,7 @@ Tinyboxes::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   match 'welcome' => 'homepage#index'
-  match 'login' => 'sessions#login'
-  match 'logout' => 'sessions#logout'
+  match 'login' => 'homepage#login'
+  match 'logout' => 'homepage#logout'
   root :to => 'leaderboard#board'
 end

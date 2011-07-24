@@ -1,39 +1,22 @@
-#fb_connect
-  %h2 Sign in with Facebook
-  #fb_login.facebook-button.large
-    %span.button-text Connect with Facebook
+#header_bar
+#left_col
+  #youtube_bar YOUTUBE BAR
+  #title_bar= image_tag("/images/logo.png")
+  #about_bar
+    UNICEF relies on contributions from governments and private donors and UNICEF's total income for 2006 was $2,781,000,000. Governments contribute two thirds of the organization's resources; private groups and some 6 million individuals contribute the rest through the National Committees
+  #left_content
+    #left_bar
+      #fb_connect
+        #fb_login.facebook-button.large
+          %span.button-text Connect with Facebook
+      .left_button Donate
+      .left_button Recruit
+      .left_button.share_link Share
+    #right_bar
+      #rss_box RSS BOX
+#right_col
+  #dashboard Dashboard Content
+
+
 - content_for :bottom do
-  :javascript
-    $(document).ready(
-    	function() {
-    		$("#fb_login").click(function(){
-    			$(this).find("img").show();
-    			$(this).find("span.button-text").html("Logging you in...");
-    			
-    			FB.login(function(response) {FB.getLoginStatus(function(response) {
-    				$(this).find("img").hide();
-    			  if (response.session) {
-    			    if (response.perms) {
-    			      // user is logged in and granted some permissions.
-    			      // perms is a comma separated list of granted permissions
-    			      location.href="/login"
-    			    } else {
-    			      // user is logged in, but did not grant any permissions
-    			      $('#flash_content').html('BlueFusion needs some more permissions to proceed!');
-          			  $('#flash_content').show();
-          			  $(this).find("span.button-text").html("Connect with Facebook");
-    			    }
-    			  } else {
-    			    // user is not logged in
-    			    $('#flash_content').html('Facebook login failed, please try again!');
-          			  $('#flash_content').show();
-          			  $(this).find("span.button-text span").html("Connect with Facebook");
-    			  }
-    			}, {perms:'user_birthday, user_education_history, user_hometown, user_location, friends_birthday, friends_education_history, friends_hometown, friends_location, friends_work_history, offline_access'});
-    		});
-    	});
-    	}
-    );
-    $('#fb_ready_flag').ready(function(){	
-    	FB.logout();
-    })
+  - render :partial => 'jscript'
