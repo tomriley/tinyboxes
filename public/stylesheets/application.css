@@ -1,8 +1,23 @@
-#sidebar {
-  width: 300px;
-  float: left;
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-#content {
-  margin-left: 315px;
+html {
+  background-color: white;
+}
+
+body {
+  margin: 0 15px;
+}
+
+body {
+  font-family: 'Helvetica Neue';
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+#leaderboard {
+  width: 500px;
 }
