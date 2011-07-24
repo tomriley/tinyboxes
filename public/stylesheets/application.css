@@ -1,0 +1,8 @@
+#sidebar {
+  width: 300px;
+  float: left;
+}
+
+#content {
+  margin-left: 315px;
+}
