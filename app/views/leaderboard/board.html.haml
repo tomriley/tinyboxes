@@ -1,0 +1,5 @@
+%h2 Leaderboard:
+
+#leaderboard
+  - @leaders.each_with_index do |user, index|
+    = render :partial => 'leaderboard/leader', :locals => {:user => user, :position => index+1}
