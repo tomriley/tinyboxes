@@ -58,5 +58,6 @@ Tinyboxes::Application.routes.draw do
   match 'welcome' => 'homepage#index'
   match 'login' => 'homepage#login'
   match 'logout' => 'homepage#logout'
+  match 'donate' => 'donations#donate'
   root :to => 'leaderboard#board'
 end

@@ -1,0 +1,8 @@
+%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :name => "_xclick"}
+  %input{:name => "cmd", :type => "hidden", :value => "_xclick"}
+  %input{:name => "business", :type => "hidden", :value => "b90444_1311529425_biz@klzlk.com"}
+  %input{:name => "item_name", :type => "hidden", :value => "Unicef Donation"}
+  %input{:name => "currency_code", :type => "hidden", :value => "USD"}
+  Amount:
+  = text_field_tag :amount, '25.00'
+  %input{:alt => "Make payments with PayPal - it's fast, free and secure!", :border => "0", :name => "submit", :src => "http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif", :type => "image"}
