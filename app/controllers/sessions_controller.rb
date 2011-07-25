@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def login
     @oauth_url = MiniFB.oauth_url(FB_APP_ID, # your Facebook App ID (NOT API_KEY)
                                   oauth_return_url, # redirect url
-                                  :scope => MiniFB.scopes.join(",")) # This asks for all permissions
+                                  :scope => FB_PERMS)
   end
   
   def logout
@@ -17,9 +17,7 @@ class SessionsController < ApplicationController
     @response_hash = MiniFB.get(@access_token, 'me', :type=>nil)
     uid = @response_hash['id']
     user = User.find_by_fbid(uid)
-    if user
-      session[:user_id] = user.id
-    else
+    if user.nil?
       user = User.new
       user.fbid = uid
       user.name = @response_hash['name']

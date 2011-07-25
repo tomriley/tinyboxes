@@ -13,3 +13,14 @@ Example fb app config:
 
 Canvas URL: http://tinyboxes-demo.heroku.com/
 Tab URL: http://tinyboxes-demo.heroku.com/leaderboard
+
+
+
+
+TODO:
+-----
+
+* Working paypal button/form on donate page
+* Use paypal Instant Payment Notifications api to match payments to origin user
+* Write various bits of copy
+* 

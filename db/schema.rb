@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724150659) do
+ActiveRecord::Schema.define(:version => 20110725025153) do
 
   create_table "donations", :force => true do |t|
     t.integer  "user_id"
@@ -27,12 +27,14 @@ ActiveRecord::Schema.define(:version => 20110724150659) do
     t.string   "token"
     t.string   "fbid"
     t.string   "name"
-    t.decimal  "money",      :precision => 8, :scale => 2, :default => 0.0
-    t.integer  "points",                                   :default => 0
+    t.decimal  "money",        :precision => 8, :scale => 2, :default => 0.0
+    t.integer  "points",                                     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "donate_token"
   end
 
+  add_index "users", ["donate_token"], :name => "index_users_on_donate_token"
   add_index "users", ["fbid"], :name => "fbid"
   add_index "users", ["money"], :name => "money"
   add_index "users", ["points"], :name => "points"

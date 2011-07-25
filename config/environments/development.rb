@@ -22,5 +22,8 @@ Tinyboxes::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  ENV["RAILS_ASSET_ID"] = '' # Turn off asset timestamping
+  
 end
 

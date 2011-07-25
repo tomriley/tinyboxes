@@ -1,8 +1,23 @@
-%form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :name => "_xclick"}
-  %input{:name => "cmd", :type => "hidden", :value => "_xclick"}
-  %input{:name => "business", :type => "hidden", :value => "b90444_1311529425_biz@klzlk.com"}
-  %input{:name => "item_name", :type => "hidden", :value => "Unicef Donation"}
-  %input{:name => "currency_code", :type => "hidden", :value => "USD"}
-  Amount:
-  = text_field_tag :amount, '25.00'
-  %input{:alt => "Make payments with PayPal - it's fast, free and secure!", :border => "0", :name => "submit", :src => "http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif", :type => "image"}
+%h1=t 'donate.heading'
+
+%p=t 'donate.intro'
+
+- if @original_user
+  #original_user
+    %h2
+      = image_tag "https://graph.facebook.com/#{@original_user.fbid}/picture", :width => 25
+      =t 'donate.original_user_thanks', :name => @original_user.name
+    
+
+#placeholder
+  Paypal button/form here
+
+- if false
+  %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :name => "_xclick"}
+    %input{:name => "cmd", :type => "hidden", :value => "_xclick"}
+    %input{:name => "business", :type => "hidden", :value => "b90444_1311529425_biz@klzlk.com"}
+    %input{:name => "item_name", :type => "hidden", :value => "Unicef Donation"}
+    %input{:name => "currency_code", :type => "hidden", :value => "USD"}
+    Amount:
+    = text_field_tag :amount, '25.00'
+    %input{:alt => "Make payments with PayPal - it's fast, free and secure!", :border => "0", :name => "submit", :src => "http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif", :type => "image"}

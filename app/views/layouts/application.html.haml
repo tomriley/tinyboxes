@@ -2,14 +2,14 @@
 %html
   %head
     %title Tinyboxes
-    %meta{:content => "Unicef", :property => "og:title"}
-    %meta{:content => "http://www.unicef.org", :property => "og:url"}
     %meta{:content => "", :property => "fb:admins"}
-    %meta{:content => "", :property => "fb:app_id"}
+    %meta{:content => "#{FB_APP_ID}", :property => "fb:app_id"}
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'jquery', 'rails', 'application'
     = csrf_meta_tag
     = javascript_tag %(window.fbAppId = '#{FB_APP_ID}')
+    = javascript_tag %(window.loggedIn = #{logged_in?})
+    = javascript_tag %(window.defaultDonateMessage = '#{escape_javascript t('default_share_message')}')
     %body
       =# render :partial => 'shared/sidebar'
       #wrapper
@@ -21,8 +21,6 @@
           = link_to 'Login', login_path, :remote => true
         = yield
         = yield :bottom
-      %fb:login-button
-      -#{:onlogin => "facebook_onlogin();"}
       #fb-root
       / Facebook
       %script{:src => "http://connect.facebook.net/en_US/all.js"}

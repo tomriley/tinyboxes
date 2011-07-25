@@ -1,5 +1,8 @@
 %tr.leader
   %td.position= position
   %td.picture= image_tag "https://graph.facebook.com/#{user.fbid}/picture"
-  %td.name= user.name
-  %td.money= number_to_currency user.money
+  %td.details
+    .name= user.name
+    .raised
+      =t 'leaderboard.total'
+      %span.total= number_to_currency user.money

@@ -1,3 +1,4 @@
+/* @override http://localhost:3000/stylesheets/application.css */
 
 html, body {
   margin: 0;
@@ -13,15 +14,124 @@ body {
 }
 
 body {
-  font-family: 'Helvetica Neue';
+  font-family: Helvetica;
   font-size: 13px;
   line-height: 1.3;
 }
 
-#leaderboard {
+#find_out_now {
+  text-align: center;
+  margin: 25px;
+}
+
+#find_out_now a.big-button {
+  font-size: 18px;
+}
+
+h2, h1 {
+  color: #3DA3E9;
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+#wrapper {
   width: 520px;
 }
 
+#buttons a.big-button {
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+}
+
 #unicef_logo {
-  
+}
+
+a.big-button {
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #f3a405;
+  color: black;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 1px solid #a16c03;
+}
+
+#buttons {
+  float: right;
+  width: 160px;
+}
+
+#blurb {
+  margin-right: 175px;
+}
+
+#leaderboard {
+  padding-top: 8px;
+  border-top: 1px solid #444;
+}
+
+#leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#leaderboard td {
+  padding: 5px;
+}
+
+#leaderboard .name {
+  font-size: 16px;
+}
+
+#leaderboard .raised {
+  color: #666;
+}
+
+#leaderboard .position {
+  font-size: 34px;
+}
+
+#leaderboard .position, #leaderboard .picture {
+  width: 1%;
+}
+
+#leaderboard .name {
+  width: 99%;
+}
+
+#placeholder {
+  margin-top: 25px;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px;
+  color: #444;
+}
+
+
+/* clearfix boilerplate */
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+  display: block;
+}
+ 
+* html .clearfix {
+  height: 1%;
 }

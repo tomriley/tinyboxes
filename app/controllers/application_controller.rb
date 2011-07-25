@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
   
   def logged_in?
-    !current_user.nil?
+    !current_user.nil? && params[:test_anon] != '1'
   end
   
   def try_and_login_with_fb_cookie

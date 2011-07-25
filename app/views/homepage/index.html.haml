@@ -3,12 +3,26 @@
 #unicef_logo
   = image_tag 'unicef11.png'
 
-#buttons
-  
-  
-#blurb
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- if logged_in?
+  .clearfix
+    #buttons
+      = link_to t('signed_in.ask_a_friend'), '#', :class => 'big-button'
+      = link_to t('signed_in.donate'), donate_url(:token => current_user.donate_token), :class => 'big-button'
+      = link_to t('signed_in.share'), donate_url(:token => current_user.donate_token), :class => 'big-button share'
+      = link_to t('signed_in.tweet'), "http://twitter.com/home?status=#{CGI::escapeElement t('default_share_message')+' '+donate_url(:token => current_user.donate_token)}", :class => 'big-button', :target => '_blank'
+      
+    #blurb
+      %h1=t 'signed_in.heading'
+      %p=t 'signed_in.intro'
 
-%table#leaderboard
-  - @leaders.each_with_index do |user, index|
-    = render :partial => 'leaderboard/leader', :locals => {:user => user, :position => index+1}
+- else
+  %h1=t 'anon.heading'
+  %p=t 'anon.intro'
+  #find_out_now
+    = link_to t('anon.find_out'), login_path, :class => 'big-button', :remote => true
+  
+%h2=t 'leaderboard.heading'
+#leaderboard
+  %table
+    - @leaders.each_with_index do |user, index|
+      = render :partial => 'leaderboard/leader', :locals => {:user => user, :position => index+1}

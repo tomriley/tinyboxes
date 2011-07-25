@@ -2,20 +2,21 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 jQuery(function() {
-  alert(window.fbAppId);
-  FB.init({appId: window.fbAppId, status: true, cookie: true, xfbml: true, permsToRequestOnConnect: 'email, offline_access'});
+  FB.init({appId: window.fbAppId, status: true, cookie: true, xfbml: true});
   
   // listen for session changes
   FB.Event.subscribe('auth.sessionChange', function(response) {
-    window.location.reload();
     if (response.session) {
+      if (!window.loggedIn) {
+        window.location.reload();
+      }
       // A user has logged in, and a new cookie has been saved
     } else {
       // The user has logged out, and the cookie has been cleared
     }
   });
 
-  jQuery('.share_link').click(function() {
+  jQuery('.big-button.share').click(function() {
     FB.ui(
       {
         method: 'feed',
@@ -23,7 +24,7 @@ jQuery(function() {
         link: $(this).attr('title'),
         picture: 'http://www.unicef.org/images/fb_logo.png',
         description: 'UNICEF is awesome!',
-        message: 'I just donated a crazy amount of money to UNICEF, you should too!'
+        message: window.defaultDonateMessage
       },
       function(response) {
         if (response && response.post_id) {
@@ -31,6 +32,6 @@ jQuery(function() {
         }
       }
     );
-    
+    return false;
   });
 });
