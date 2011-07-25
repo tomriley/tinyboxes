@@ -1,8 +1,12 @@
 cd tinyboxes
 heroku create
 git push heroku master
-heroku config:add FB_APP_ID=<your fb app id> FB_APP_SECRET=<your fb app secret> FB_PAGE_URL=<>
+heroku config:add FB_APP_ID=<your fb app id> FB_APP_SECRET=<your fb app secret>
 
+# e.g. for testing:
+heroku config:add FB_PAGE_NAME="pages/Tiny-Boxes-Test-Page/108040335960818"
+# e.g. for production:
+heroku config:add FB_PAGE_NAME="unicef"
 
 Example fb app config:
 ---------------------
