@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
   
   def login
-    oauth_url = MiniFB.oauth_url(FB_APP_ID, # your Facebook App ID (NOT API_KEY)
+    @oauth_url = MiniFB.oauth_url(FB_APP_ID, # your Facebook App ID (NOT API_KEY)
                                   oauth_return_url, # redirect url
                                   :scope => MiniFB.scopes.join(",")) # This asks for all permissions
-    redirect_to oauth_url
   end
   
   def logout
