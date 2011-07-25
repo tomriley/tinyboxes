@@ -14,9 +14,10 @@
       =# render :partial => 'shared/sidebar'
       #wrapper
         - if logged_in?
-          %p
-            logged in as
-            = current_user.name
+          /
+            %p
+              logged in as
+              = current_user.name
         - else
           = link_to 'Login', login_path, :remote => true
         = yield
