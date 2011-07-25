@@ -1,7 +1,8 @@
 class HomepageController < ApplicationController
   
   def index
-    redirect_to login_path if !logged_in? 
+    @leaders = User.leaders(10)
+    #redirect_to login_path if !logged_in? 
   end
   
 end

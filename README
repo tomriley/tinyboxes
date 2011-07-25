@@ -1,4 +1,11 @@
-Gems:
+cd tinyboxes
+heroku create
+git push heroku master
+heroku config:add FB_APP_ID=<your fb app id> FB_APP_SECRET=<your fb app secret> FB_PAGE_URL=<>
 
-Heroku http://devcenter.heroku.com/articles/heroku-command
-Facebooker http://facebooker.rubyforge.org/
+
+Example fb app config:
+---------------------
+
+Canvas URL: http://tinyboxes-demo.heroku.com/
+Tab URL: http://tinyboxes-demo.heroku.com/leaderboard

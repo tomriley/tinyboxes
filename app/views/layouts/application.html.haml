@@ -6,14 +6,17 @@
     %meta{:content => "http://www.unicef.org", :property => "og:url"}
     %meta{:content => "", :property => "fb:admins"}
     %meta{:content => "", :property => "fb:app_id"}
-    = stylesheet_link_tag :all
+    = stylesheet_link_tag 'application'
     = javascript_include_tag 'jquery', 'application'
     = csrf_meta_tag
+    = javascript_tag %(window.fbAppId = '#{FB_APP_ID}')
     %body
       =# render :partial => 'shared/sidebar'
       #wrapper
         = yield
         = yield :bottom
+      %fb:login-button
+      -#{:onlogin => "facebook_onlogin();"}
       #fb-root
       / Facebook
       %script{:src => "http://connect.facebook.net/en_US/all.js"}

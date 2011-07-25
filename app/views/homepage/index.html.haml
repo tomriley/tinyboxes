@@ -1,26 +1,14 @@
-#header_bar
-#left_col
-  #youtube_bar YOUTUBE BAR
-  #title_bar= image_tag("/images/logo.png")
-  #about_bar
-    UNICEF relies on contributions from governments and private donors and UNICEF's total income for 2006 was $2,781,000,000. Governments contribute two thirds of the organization's resources; private groups and some 6 million individuals contribute the rest through the National Committees
-  #left_content
-    #left_bar
-      - if false
-        #fb_connect
-          #fb_login.facebook-button.large
-            = link_to login_path do
-              %span.button-text Connect with Facebook
-      .left_button Donate
-      .left_button Recruit
-      .left_button.share_link{:title => logged_in? ? donate_url(:token => current_user.token) : root_url} Share
-      - if logged_in?
-        %p
-          Donate URL:
-          = link_to donate_url(:token => current_user.token), donate_url(:token => current_user.token)
-    #right_bar
-      #rss_box RSS BOX
+%iframe{:allowfullscreen => "", :frameborder => "0", :height => "296", :src => "http://www.youtube.com/embed/cFgdQaCZW30", :width => "520"}
 
+#unicef_logo
+  = image_tag 'unicef11.png'
 
-- content_for :bottom do
-  - render :partial => 'jscript'
+#buttons
+  
+  
+#blurb
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+%table#leaderboard
+  - @leaders.each_with_index do |user, index|
+    = render :partial => 'leaderboard/leader', :locals => {:user => user, :position => index+1}
