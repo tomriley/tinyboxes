@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     logger.info "uid=#{fb_info['uid']}"
     logger.info "session=#{fb_info['session_key']}"
     
-    if MiniFB.verify_cookie_signature(FB_APP_ID, FB_SECRET, cookies)
+    if MiniFB.verify_cookie_signature(FB_APP_ID, FB_APP_SECRET, cookies)
       user = User.find_by_fbid(fb_info['uid'])
       if user
         session[:user_id] = user.id
