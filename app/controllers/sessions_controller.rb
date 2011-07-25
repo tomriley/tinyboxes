@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       user.save!
     end
     session[:user_id] = user.id
-    redirect_to root_url
+    redirect_to ENV['FB_APP_URL'] # go back to facebook
   end
   
 end
