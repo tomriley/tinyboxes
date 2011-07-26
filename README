@@ -27,6 +27,12 @@ http://www.facebook.com/pages/Tiny-Boxes-Test-Page/108040335960818?sk=app_224542
 
 
 
+Things that don't work
+----------------------
+
+* Real donations
+* The tell a friend button (which is supposed to open a facebook 'send' dialog) stopped working at some point and I can't figure out why
+
 
 Deploying to Heroku
 -------------------
@@ -75,8 +81,15 @@ Add the app to the facebook page
 TODO:
 -----
 
+* Update config/locales/en.yml with real text
 * Working paypal button/form on donate page
 * Use paypal Instant Payment Notifications api to match payments to origin user
-* Write various bits of copy
-* Create short donation URLs that redirect to the long in-facebook-page donation urls (maybe using bitly api)
+* Create shorter donation URLs that redirect to the long in-facebook-page donation urls (maybe using bitly api)
 * When visitor comes to the app via a donate link, allow visitor to navigate around app (to get more info), before returning to donate page. Maybe store donate\_token in a cookie or pass donate_token around via query params
+
+
+Future:
+-------
+
+* Make the app installable on multiple pages, supporting separate leaderboards.
+* i18n - we're using standard Rails localisation features so this shouldn't be too hard
