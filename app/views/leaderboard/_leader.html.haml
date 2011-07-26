@@ -2,7 +2,8 @@
   %td.position= position
   %td.picture= image_tag "https://graph.facebook.com/#{user.fbid}/picture"
   %td.details
-    .name= user.name
+    .name
+      %fb:name{:uid => user.fbid}
     .raised
       =t 'leaderboard.total'
       %span.total= number_to_currency user.money

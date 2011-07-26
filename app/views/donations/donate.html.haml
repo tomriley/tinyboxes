@@ -6,7 +6,7 @@
   #original_user
     %h2
       = image_tag "https://graph.facebook.com/#{@original_user.fbid}/picture", :width => 25
-      =t 'donate.original_user_thanks', :name => @original_user.name
+      = t('donate.original_user_thanks', :name => content_tag('fb:name', nil, :uid => @original_user.fbid)).html_safe
     
 
 #placeholder

@@ -1,15 +1,29 @@
 Basic app structure
 --------------------
 
-This canvas app is intended to run within a Facebook page. When clicking onto the app, anonymous (not authenticated) users see a page with explanation and a button to signup (as a fundraiser):
+This canvas app is intended to run within a Facebook page. When clicking onto the app, anonymous (not authenticated) users see a page with explanation and a button to signup (as a fundraiser).
 
-https://github.com/tomriley/tinyboxes/blob/master/doc/mockups/Unicef_App_Index.png
+Once authenticated, they see a slightly modified page with share/tweet/donate buttons.
 
-Once authenticated, they see a slightly modified page with share/tweet/donate buttons:
+The only other page is the donate page. The app generates a special URL that the user can share with friends. Any donation made via that URL increases their leadboard total.
 
-https://github.com/tomriley/tinyboxes/blob/master/doc/mockups/Unicef_App_App.png
+Screenshots:
+https://github.com/tomriley/tinyboxes/tree/master/doc/screenshots
+
+Mockups:
+https://github.com/tomriley/tinyboxes/tree/master/doc/mockups
+
+The special donate URL actually points to the application via the Facebook page so it's a pretty long unwieldily URL but it does mean that everyone stays within the UNICEF Facebook page environment.
+
+The donate form is just a dummy form and just increments the fundraisers total. The next major step is to replace this with a real paypal button/form that ties the donation, when made, to the fundraiser.
 
 
+Live demo:
+------------
+
+There is a live demo page running here:
+
+http://www.facebook.com/pages/Tiny-Boxes-Test-Page/108040335960818?sk=app_224542400914446
 
 
 
@@ -48,6 +62,7 @@ heroku config:add FB_PAGE_NAME="pages/Tiny-Boxes-Test-Page/1080403234234"
 (e.g. when page has a username:)
 heroku config:add FB_PAGE_NAME="unicef"
 
+... eventually the same configuration mechanism should be used to specify the paypal account that's going to receive donations and the locale to use (when internationalised).
 
 
 Add the app to the facebook page

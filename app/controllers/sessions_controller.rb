@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     if user.nil?
       user = User.new
       user.fbid = uid
-      user.name = @response_hash['name']
+      #user.name = @response_hash['name']
       user.token = @access_token
       user.save!
     end
