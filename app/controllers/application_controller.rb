@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
         log_in_user!(user)
       else
         # connected user but no User record - just ignore
-        logger.warning "Facebook cookie found but couldn't find User for uid #{fb_info['uid']}"
+        logger.warn "Facebook cookie found but couldn't find User for uid #{fb_info['uid']}"
       end
     else
       # The cookies may have been modified as the signature does not match
-      logger.warning "Facebook cookie didn't verify!"
+      logger.warn "Facebook cookie didn't verify!"
     end
   end
   

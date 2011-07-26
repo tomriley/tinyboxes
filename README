@@ -1,3 +1,17 @@
+Basic app structure
+--------------------
+
+This canvas app is intended to run within a Facebook page. When clicking onto the app, anonymous (not authenticated) users see a page with explanation and a button to signup (as a fundraiser):
+
+https://github.com/tomriley/tinyboxes/blob/master/doc/mockups/Unicef_App_Index.png
+
+Once authenticated, they see a slightly modified page with share/tweet/donate buttons:
+
+https://github.com/tomriley/tinyboxes/blob/master/doc/mockups/Unicef_App_App.png
+
+
+
+
 
 
 Deploying to Heroku
