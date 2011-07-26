@@ -42,8 +42,8 @@ jQuery(function() {
         link: $(this).attr('href'),
         name: $(this).attr('href'),
         description: window.defaultDonateMessage,
-        picture: 'http://www.unicef.org/images/unicef_logo.gif',
-        message: window.defaultDonateMessage+' '+$(this).attr('href')
+        picture: 'http://www.unicef.org/images/unicef_logo.gif'//,
+        //message: window.defaultDonateMessage+' '+$(this).attr('href')
       },
       function(response) {
         if (response && response.post_id) {
