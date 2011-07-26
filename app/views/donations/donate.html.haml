@@ -11,7 +11,16 @@
 
 #placeholder
   Paypal button/form here
-
+  
+  - form_tag fake_donation_path do
+    = label_tag 'Test donation:'
+    - if @original_user
+      = hidden_field_tag 'donate_token', @original_user.donate_token
+    = text_field_tag :amount, '10'
+    USD
+    = submit_tag 'Submit'
+    
+  
 - if false
   %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :name => "_xclick"}
     %input{:name => "cmd", :type => "hidden", :value => "_xclick"}

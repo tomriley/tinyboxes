@@ -23,4 +23,5 @@ TODO:
 * Working paypal button/form on donate page
 * Use paypal Instant Payment Notifications api to match payments to origin user
 * Write various bits of copy
-* 
+* Create short donation URLs that redirect to the long in-facebook-page donation urls (maybe using bitly api)
+* When visitor comes to the app via a donate link, allow visitor to navigate around app (to get more info), before returning to donate page. Maybe store donate\_token in a cookie or pass donate_token around via query params

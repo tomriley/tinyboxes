@@ -20,11 +20,11 @@ jQuery(function() {
     FB.ui(
       {
         method: 'feed',
-        name: 'Unicef',
-        link: $(this).attr('title'),
-        picture: 'http://www.unicef.org/images/fb_logo.png',
-        description: 'UNICEF is awesome!',
-        message: window.defaultDonateMessage
+        link: $(this).attr('href'),
+        name: $(this).attr('href'),
+        picture: 'http://www.unicef.org/images/unicef_logo.gif',
+        description: window.defaultDonateMessage,
+        message: window.defaultDonateMessage+' '+$(this).attr('href')
       },
       function(response) {
         if (response && response.post_id) {
@@ -34,4 +34,30 @@ jQuery(function() {
     );
     return false;
   });
+  
+  jQuery('.big-button.tell').click(function() {
+    FB.ui(
+      {
+        method: 'send',
+        link: $(this).attr('href'),
+        name: $(this).attr('href'),
+        description: window.defaultDonateMessage,
+        picture: 'http://www.unicef.org/images/unicef_logo.gif'
+        //message: window.defaultDonateMessage+' '+$(this).attr('href')
+      },
+      function(response) {
+        if (response && response.post_id) {
+          //success!
+        }
+      }
+    );
+    return false;
+  });
+  
 });
+
+
+function show_tweet_publish_popup(msg) {
+  var url = "http://twitter.com/home?"+jQuery.param({status:msg});
+  window.open(url, 'publish_tweet', 'toolbar=1,scrollbars=1,location=1,statusbar=1,menubar=1,resizable=1,width=500,height=400,left = 590,top = 325');
+}

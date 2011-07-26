@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
   
   def logout
-    session.delete(:user_id)
+    reset_session
     redirect_to root_path
   end
   
@@ -24,9 +24,9 @@ class SessionsController < ApplicationController
       user.token = @access_token
       user.save!
     end
-    session[:user_id] = user.id
-    redirect_to "http://www.facebook.com/#{FB_PAGE_NAME}?sk=app_#{FB_APP_ID}"
-    #redirect_to ENV['FB_APP_URL'] # go back to facebook
+    log_in_user!(user)
+    # Now redirect back to the app within facebook page
+    redirect_to in_facebook_page_app_url
   end
   
 end

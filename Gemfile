@@ -4,24 +4,17 @@ gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-#gem 'pg'
-
-
 # gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
-#gem "koala"
-gem "mini_fb"
+gem "mini_fb" # Used for oauth
 gem "json_pure"
 gem "haml"
-gem "json_pure"
-gem "rake", "0.8.7"
+gem "rake", "0.8.7" # newer versions of rake have issues with rails 3
+gem 'rest-graph' # only used for decoding facebook signed_request param
+
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
 # gem 'ruby-debug19', :require => 'ruby-debug'
