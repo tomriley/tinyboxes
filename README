@@ -1,20 +1,46 @@
-cd tinyboxes
+
+
+Deploying to Heroku
+-------------------
+
+At the moment, things are written such that each facebook page using the app needs it's own deployment. This obviously isn't ideal. In the future the app should detect each facebook page install and create a new leaderboard for users scoped to that local UNICEF fund page.
+
+Instructions for deploying to heroku:
+
+(assuming a local clone from the github repository, heroku account, heroku gem installed etc)
+cd tinyboxes/
 heroku create
 git push heroku master
+
+
+Create a Facebook app:
+---------------------------------------
+
+These are the important settings:
+(Assuming heroku app name is tiny-boxes-123...)
+Site URL: http://tiny-boxes-123.heroku.com
+Site Domain: tiny-boxes-123.heroku.com
+Canvas URL: http://tiny-boxes-123.heroku.com/
+Tab URL: http://tiny-boxes-123.heroku.com/
+
+
+Configure the Heroku app for your Facebook page:
+------------------------------------------------
+
 heroku config:add FB_APP_ID=<your fb app id> FB_APP_SECRET=<your fb app secret>
 
-# e.g. for testing:
-heroku config:add FB_PAGE_NAME="pages/Tiny-Boxes-Test-Page/108040335960818"
-# e.g. for production:
+(e.g. if page doesn't yet have a username:)
+heroku config:add FB_PAGE_NAME="pages/Tiny-Boxes-Test-Page/1080403234234"
+(e.g. when page has a username:)
 heroku config:add FB_PAGE_NAME="unicef"
 
-Example fb app config:
----------------------
-
-Canvas URL: http://tinyboxes-demo.heroku.com/
-Tab URL: http://tinyboxes-demo.heroku.com/leaderboard
 
 
+Add the app to the facebook page
+--------------------------------
+
+* Find the application "page" on facebook (the page that has a wall etc - it's not the actual app)
+* You'll find a link to add the app to a page
 
 
 TODO:
